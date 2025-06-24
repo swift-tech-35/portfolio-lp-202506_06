@@ -1,4 +1,3 @@
-// imageUrls.js
 window.env = {
   BG: "https://drive.google.com/uc?export=view&id=1ib6xnYXe19z2e850jfOtehJONxNqPVmk",
   TITLE_GRAD: "https://drive.google.com/uc?export=view&id=1Jz0EQ4lpcjJHIkFJDomyHddyrvFAlPPS",
@@ -8,3 +7,4 @@ window.env = {
   STONE: "https://drive.google.com/uc?export=view&id=1SYosanlvGbkh4JBUQurQNIVyW2Y44s_J",
   BUTTON_TEXT: "https://drive.google.com/uc?export=view&id=1SYosanlvGbkh4JBUQurQNIVyW2Y44s_J",
 };
+
