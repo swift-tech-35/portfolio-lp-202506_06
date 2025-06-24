@@ -2,9 +2,13 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Drive画像直表示テスト</title>
+  <title>画像表示テスト</title>
+  <script src="imageUrls.js"></script>
 </head>
 <body>
-  <img src="https://drive.google.com/uc?export=view&id=1ib6xnYXe19z2e850jfOtehJONxNqPVmk" alt="背景画像テスト">
+  <img id="bg" src="" alt="背景画像">
+  <script>
+    document.getElementById('bg').src = window.env.BG;
+  </script>
 </body>
 </html>
