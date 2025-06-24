@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>オーラ鑑定LP</title>
+  <script src="./imageUrls.js"></script>
+  <style>
+    html, body {
+      margin: 0; padding: 0; height: 100%; width: 100%;
+    }
+    body {
+      width: 100vw; height: 100vh; position: relative; overflow: hidden;
+      font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+      background: #eaf2ff;
+      min-height: 100dvh;
+    }
+    .lp-bg {
+      position: absolute;
+      inset: 0;
+      width: 100vw; height: 100vh;
+      object-fit: cover;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .container {
+      position: relative;
+      width: 100vw;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 1;
+    }
+    .title-wrap {
+      width: 100vw;
+      margin-top: 36px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 2;
+    }
+    .title-white {
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 89vw; max-width: 356px;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .title-grad {
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 89vw; max-width: 356px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .subtitle {
+      margin-top: 79px; /* タイトル画像の下端調整 */
+      width: 80vw; max-width: 365px;
+    }
+    .catch {
+      margin-top: 2vw;
+      width: 87vw; max-width: 374px;
+    }
+    .stone-area {
+      margin-top: 7vh;
+      width: 67vw; max-width: 340px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .stone-img {
+      width: 100%; max-width: 340px; pointer-events: auto;
+      z-index: 1;
+    }
+    .button-text {
+      position: absolute;
+      top: 38%; left: 50%; transform: translate(-50%, 0);
+      width: 75%; max-width: 269px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .stone-clickable {
+      /* クリスタルにクリック領域被せる */
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 3;
+      background: rgba(0,0,0,0);
+      cursor: pointer;
+      border: none;
+      outline: none;
+    }
+    .help-btn {
+      position: fixed;
+      bottom: 22px; left: 50%; transform: translateX(-50%);
+      background: #666;
+      color: #fff;
+      font-size: 1.1rem;
+      padding: 9px 40px;
+      border-radius: 12px;
+      border: none;
+      box-shadow: 0 3px 15px rgba(80,80,80,0.17);
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      opacity: 0.92;
+      z-index: 20;
+    }
+    @media (max-width: 450px) {
+      .container { min-height: 100vh; }
+      .title-white, .title-grad { width: 94vw; }
+      .subtitle { width: 92vw; }
+      .catch { width: 94vw; }
+      .stone-area { width: 88vw; }
+    }
+  </style>
+</head>
+<body>
+  <img class="lp-bg" id="bg" src="" alt="背景画像" draggable="false">
+  <div class="container">
+    <div class="title-wrap">
+      <img class="title-white" id="titleWhite" src="" alt="タイトル白フチ" draggable="false">
+      <img class="title-grad" id="titleGrad" src="" alt="オーラ鑑定タイトル" draggable="false">
+      <img class="subtitle" id="subtitle" src="" alt="これからの人生の転機を" draggable="false">
+      <img class="catch" id="catch" src="" alt="で占います" draggable="false">
+    </div>
+    <div class="stone-area">
+      <img class="stone-img" id="stone" src="" alt="パワーストーン" draggable="false">
+      <img class="button-text" id="buttonText" src="" alt="パワーストーンを押してください" draggable="false">
+      <button class="stone-clickable" id="stoneBtn" aria-label="パワーストーンを押してください"></button>
+    </div>
+  </div>
+  <button class="help-btn" onclick="alert('ヘルプ画面（仮）')">ヘルプ</button>
+  <script>
+    const env = window.env || {};
+    document.getElementById('bg').src = env.BG || '';
+    document.getElementById('titleWhite').src = env.TITLE_WHITE || '';
+    document.getElementById('titleGrad').src = env.TITLE_GRAD || '';
+    document.getElementById('subtitle').src = env.SUBTITLE || '';
+    document.getElementById('catch').src = env.CATCH || '';
+    document.getElementById('stone').src = env.STONE || '';
+    document.getElementById('buttonText').src = env.BUTTON_TEXT || '';
+
+    // ストーン押下イベント（遷移・モーダルなど自由に！）
+    document.getElementById('stoneBtn').onclick = function() {
+      alert('パワーストーンが押されました！（ここに遷移処理や次ページへのリンクを追加可）');
+      // 例: location.href = "nextpage.html";
+    };
+  </script>
+</body>
+</html>
